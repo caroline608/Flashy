@@ -11,8 +11,10 @@ import UIKit
 class FlashCardViewController: UIViewController {
 
     private let flashCardsView = FlashCardsView()
+    let authUserService = AuthUserService()
     
     private var category: Category!
+ 
     
     private var flashCards = [FlashCard]() {
         didSet {
@@ -36,6 +38,7 @@ class FlashCardViewController: UIViewController {
         view.addSubview(flashCardsView)
         setupNavBar()
         loadFlashCards()
+      
     
     }
     
@@ -54,6 +57,8 @@ class FlashCardViewController: UIViewController {
             }
         }
     }
+    
+   
     
     @objc private func addNewFlashCard() {
         let createFCVC = CreateFlashCardViewController(category: category)
@@ -75,12 +80,16 @@ class FlashCardViewController: UIViewController {
 extension FlashCardViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return flashCards.count
+       
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let flashCardCell = collectionView.dequeueReusableCell(withReuseIdentifier: "flashCardCell", for: indexPath) as! FlashCardCollectionViewCell
         let flashCard = flashCards[indexPath.row]
+      
         flashCardCell.configureCell(flashCard: flashCard)
+        
+        
         return flashCardCell
     }
 }

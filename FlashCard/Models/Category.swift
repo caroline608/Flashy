@@ -24,7 +24,7 @@
 //    }
 //}
 
-extension Category {
+extension Category{
     func parse(dict: [String : Any]) {
         userID = dict["userID"] as? String
         categoryName = dict["categoryName"] as? String

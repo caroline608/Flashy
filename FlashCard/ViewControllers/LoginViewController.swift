@@ -148,6 +148,7 @@ extension LoginViewController: AuthUserServiceDelegate {
             authUserService.signOut()
         }
         let tabController = TabBarController.storyboardInstance()
+        tabController.selectedIndex = 0
         present(tabController, animated: true, completion: nil)
     }
     

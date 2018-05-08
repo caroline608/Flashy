@@ -14,7 +14,7 @@ class CreateAccountViewController: UIViewController {
     let createAccountView = CreateAccountView()
     private var tapGesture: UITapGestureRecognizer!
     
-    
+//    this override is for injection, I want this view to pop up in the viewcontroller
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nil)
     }

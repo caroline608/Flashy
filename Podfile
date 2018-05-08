@@ -10,6 +10,7 @@ pod 'SnapKit'
 pod 'Firebase'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
+pod 'Firebase/DynamicLinks'
 
   target 'FlashCardTests' do
     inherit! :search_paths

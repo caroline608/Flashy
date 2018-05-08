@@ -34,7 +34,7 @@ class AuthUserService: NSObject {
     }
     
     public func createUser(email: String, password: String, firstName: String, lastName: String) {
-        Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
+        Auth.auth().createUser(withEmail: email, password: password) { [unowned self] (user, error) in
             if let error = error {
                 self.delegate?.didFailCreatingUser?(self, error: error)
             } else if let user = user {
@@ -57,7 +57,7 @@ class AuthUserService: NSObject {
     }
     
     public func resetPassword(with email: String) {
-        Auth.auth().sendPasswordReset(withEmail: email){(error) in
+        Auth.auth().sendPasswordReset(withEmail: email){ [unowned self] (error) in
             if let error = error {
                 self.delegate?.didFailSendResetPassword?(self, error: error)
                 return
@@ -76,7 +76,7 @@ class AuthUserService: NSObject {
     }
     
     public func signIn(email: String, password: String) {
-        Auth.auth().signIn(withEmail: email, password: password) { (user, error) in
+        Auth.auth().signIn(withEmail: email, password: password) { [unowned self] (user, error) in
             if let error = error {
                 self.delegate?.didFailToSignIn?(self, error: error)
             } else if let user = user {

@@ -29,7 +29,7 @@ class CategoriesViewController: UIViewController {
     }
     
     private func setupNavBar() {
-        navigationItem.title = "Categories"
+        navigationItem.title = "Select a Category"
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(addCategory))
     }

@@ -15,7 +15,8 @@
 //        let firstName: String
 //        let lastName: String
 //        let dateJoined: Date
-//        
+//let flashcardModel: Reference
+//
 //        init(dict: [String : Any]) {
 //            userID = dict["userID"] as? String ?? ""
 //            username = dict["username"] as? String ?? ""
@@ -23,6 +24,10 @@
 //            lastName = dict["lastName"] as? String ?? ""
 //            dateJoined = dict["dateJoined"] as? String ?? ""
 //        }
+//}
+
+//struct flashcardModel {
+//    
 //}
 
 extension UserInfo {

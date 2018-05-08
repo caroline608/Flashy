@@ -32,14 +32,21 @@ class ProfileViewController: UIViewController {
         setupNavBar()
         loadUserFlashCards()
     }
-    
+
+//    override func viewWillAppear(_ animated: Bool) {
+//        super.viewWillAppear(animated)
+//        view.addSubview(profileView)
+//        setupNavBar()
+//        loadUserFlashCards()
+//    }
+//    
     private func setupNavBar() {
 //        navigationItem.title = AuthUserService.getCurrentUser()!.displayName
 //        navigationController?.navigationBar.prefersLargeTitles = true
 //        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Sign out", style: UIBarButtonItemStyle.plain, target: self, action: #selector(signOut))
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationItem.largeTitleDisplayMode = .always
-        navigationItem.title = "@\(AuthUserService.getCurrentUser()?.displayName ?? "FlashCards")"
+        navigationItem.title = "\(AuthUserService.getCurrentUser()?.displayName ?? "FlashCards")"
         navigationItem.leftBarButtonItem = UIBarButtonItem(title: "sign out", style: .plain, target: self, action: #selector(signOut))
     }
     

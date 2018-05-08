@@ -6,6 +6,8 @@
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
         <attribute name="numberOfCards" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="flashcard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FlashCard" inverseName="category" inverseEntity="FlashCard" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfo" inverseName="category" inverseEntity="UserInfo" syncable="YES"/>
     </entity>
     <entity name="FlashCard" representedClassName="FlashCard" syncable="YES" codeGenerationType="class">
         <attribute name="answer" optional="YES" attributeType="String" syncable="YES"/>
@@ -16,6 +18,8 @@
         <attribute name="question" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Category" inverseName="flashcard" inverseEntity="Category" syncable="YES"/>
+        <relationship name="user" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="UserInfo" inverseName="flashcard" inverseEntity="UserInfo" syncable="YES"/>
     </entity>
     <entity name="UserInfo" representedClassName="UserInfo" syncable="YES" codeGenerationType="class">
         <attribute name="dateJoined" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -23,10 +27,12 @@
         <attribute name="lastName" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="userID" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="category" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Category" inverseName="user" inverseEntity="Category" syncable="YES"/>
+        <relationship name="flashcard" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="FlashCard" inverseName="user" inverseEntity="FlashCard" syncable="YES"/>
     </entity>
     <elements>
-        <element name="UserInfo" positionX="-450" positionY="-144" width="128" height="118"/>
-        <element name="Category" positionX="-495" positionY="26" width="128" height="118"/>
-        <element name="FlashCard" positionX="-324" positionY="-10" width="128" height="163"/>
+        <element name="Category" positionX="-522" positionY="45" width="128" height="148"/>
+        <element name="FlashCard" positionX="-488" positionY="239" width="128" height="193"/>
+        <element name="UserInfo" positionX="-801" positionY="41" width="128" height="148"/>
     </elements>
 </model>
